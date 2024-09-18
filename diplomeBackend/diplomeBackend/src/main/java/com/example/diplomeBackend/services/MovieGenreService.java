@@ -39,7 +39,7 @@ public class MovieGenreService {
     }
 
     public List<MovieDTO> findByGenreName(String genreName) {
-        List<Movie> movieGenres = movieGenreRepository.findByGenreNameWithSorting(genreName);
+        List<Movie> movieGenres = movieGenreRepository.findByGenreName(genreName);
         return movieGenres.stream()
                 .map(movieMapper::toDTO)
                 .collect(Collectors.toList());

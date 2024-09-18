@@ -75,7 +75,7 @@ class MovieGenreServiceTest {
         Movie movie = new Movie();
         MovieDTO movieDTO = new MovieDTO();
 
-        when(movieGenreRepository.findByGenreNameWithSorting(genreName)).thenReturn(List.of(movie));
+        when(movieGenreRepository.findByGenreName(genreName)).thenReturn(List.of(movie));
         when(movieMapper.toDTO(movie)).thenReturn(movieDTO);
 
         List<MovieDTO> result = movieGenreService.findByGenreName(genreName);
@@ -83,7 +83,7 @@ class MovieGenreServiceTest {
         assertNotNull(result);
         assertEquals(1, result.size());
         assertEquals(movieDTO, result.get(0));
-        verify(movieGenreRepository, times(1)).findByGenreNameWithSorting(genreName);
+        verify(movieGenreRepository, times(1)).findByGenreName(genreName);
         verify(movieMapper, times(1)).toDTO(movie);
     }
 

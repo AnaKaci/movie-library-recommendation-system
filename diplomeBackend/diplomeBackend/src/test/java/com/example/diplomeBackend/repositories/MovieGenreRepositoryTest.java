@@ -41,7 +41,7 @@ class MovieGenreRepositoryTest {
 
     @Test
     void testFindByGenreNameWithSorting() {
-        List<Movie> movies = movieGenreRepository.findByGenreNameWithSorting("Action");
+        List<Movie> movies = movieGenreRepository.findByGenreName("Action");
         assertNotNull(movies);
         assertEquals(1, movies.size());
         assertEquals("Action Movie", movies.get(0).getTitle());

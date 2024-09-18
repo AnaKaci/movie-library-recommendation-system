@@ -15,7 +15,7 @@ import java.util.List;
 public interface MovieGenreRepository extends JpaRepository<MovieGenre, Long> {
 
     @Query("SELECT mg.movie FROM MovieGenre mg WHERE LOWER(mg.genre) = LOWER(:genreName)")
-    List<Movie> findByGenreNameWithSorting(@Param("genreName") String genreName);
+    List<Movie> findByGenreName(@Param("genreName") String genreName);
 
     @Transactional
     @Modifying
